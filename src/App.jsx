@@ -4,20 +4,22 @@ import Cards from './components/Cards.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import Nav from './components/Nav.jsx';
 import React from 'react';
+import axios from 'axios';
+
 function App() {
-   var [characters,setcharacters]= React.useState([])
-   function onSearch(){
-      setcharacters([...characters,  {id: 1,
-         name: 'Rick Sanchez',
-         status: 'Alive',
-         species: 'Human',
-         gender: 'Male',
-         origin: {
-            name: 'Earth (C-137)',
-            url: 'https://rickandmortyapi.com/api/location/1',
-         },
-         image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-   }])}
+   var [characters,setCharacters]= React.useState([])
+   function onSearch(id) {
+      console.log(`https://rickandmortyapi.com/api/character/${id}`)
+      axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
+         ({ data }) => {
+            if (data.name) {
+               setCharacters((oldChars) => [...oldChars, data]);
+            } else {
+               window.alert('¡No hay personajes con este ID!');
+            }
+         }
+      );
+   }
    
    return (
       <div className='App'>

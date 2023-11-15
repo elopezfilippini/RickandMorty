@@ -5,12 +5,12 @@ import React from "react";
 export default function Card({id,name,status,species,gender,origin,image}) {
    return (
       <div>
-         <h2>id: {id}  </h2>
-         <h2>name:{name} </h2>
-         <h2>status: {status} </h2>
-         <h2>specie: {species} </h2>
-         <h2>gender:{gender} </h2>
-         <h2>origin: {origin} </h2>
+         <h2>Id: {id}  </h2>
+         <h2>Name:{name} </h2>
+         <h2>Status: {status} </h2>
+         <h2>Specie: {species} </h2>
+         <h2>Gender:{gender} </h2>
+         <h2>Origin: {origin} </h2>
          <img src={image} alt='' />
       </div>
    );

@@ -12,14 +12,23 @@ export default function Cards(props)  {
 return(
   <div>
     {characters.map((character) =>(
-      <div key ={character.id}>
-         <h2>id: {character.id}  </h2>
-         <h2>name: {character.name} </h2>
-         <h2>status: {character.status} </h2>
-         <h2>especie: {character.species} </h2>
-         <h2>gender: {character.gender} </h2>
-         <h2>origin: {character.origin.name}  </h2>
-         <img src={character.image} alt='' />
-      </div>)
-   )}</div>);
-}
+      <div key={character.id} style={{
+         backgroundColor: 'grey',
+         fontSize: '16px',
+         border: '3px solid red',
+         margin: '2px',
+         width : '400px'
+       }}> ;
+         <Card
+            key={character.id}
+            id={character.id}
+            name={character.name}
+            status={character.status}
+            species={character.species}
+            gender={character.gender}
+            origin={character.origin.name}
+            image={character.image}
+            />
+   </div>))}
+   </div>)}
+// onClose={onClose} 
