@@ -1,33 +1,33 @@
 import './App.css';
 import Card from './components/Card.jsx';
 import Cards from './components/Cards.jsx';
+import About from './components/About.jsx';
+import Index from './components/index.jsx';
+import Detail from './components/Detail.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import Nav from './components/Nav.jsx';
 import React from 'react';
 import axios from 'axios';
+import {Route,Routes} from "react-router-dom"
+
 
 function App() {
-   var [characters,setCharacters]= React.useState([])
-   function onSearch(id) {
-      console.log(`https://rickandmortyapi.com/api/character/${id}`)
-      axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
-         ({ data }) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               window.alert('¡No hay personajes con este ID!');
-            }
-         }
-      );
-   }
-   
    return (
-      <div className='App'>
-         <Nav onSearch={onSearch}  />  
-        <Cards characters={characters} />
+   
+      <div className='App'style={{alignItems:"center",
+      flexDirection:"row"}}><h1>Rick And Morty App</h1>
+      
+      <Routes>
+         <Route path={"/about"} element={<About />}></Route>
+         <Route path={"/"} element={<Index />}></Route>
+         <Route path={"/detail/:id"} element={<Detail />}></Route>
+
+    
+      </Routes> 
+        
       </div>
    );
-}
+}  
 
 export default App;
 //{/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
