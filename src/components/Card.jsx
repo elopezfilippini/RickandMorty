@@ -1,18 +1,42 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import { addFav,removeFav } from "../redux/actions";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+// id,name,status,species,gender,origin,image,OnClose
+
+export default function Card(props) {
+   const Dispatch= useDispatch()
+   const [isfav,setisfav] = useState(false) 
+const myfavorites = useSelector(state => state.myFavorites)
+console.log("mi favorito es:", myfavorites)
+useEffect(() => {
+   myfavorites.forEach((fav) => {
+      if (fav.id === props.id) {
+         setisfav(true);
+      }
+   });
+}, [myfavorites]);
+   function handleFavorite() {
+      if (isfav === true) {setisfav(false);
+      Dispatch(removeFav(props.id))}
+      else {setisfav(true); Dispatch(addFav(props))}}
 
 
-export default function Card({id,name,status,species,gender,origin,image,OnClose}) {
-   return (
-      <Link to={`/detail/${id}`} >
-      <button onClick={() => OnClose(id)} style={{backgroundColor:"yellowgreen"}}>Close</button>
+      return (
+        <div> { isfav ? ( <button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>)}{ console.log(isfav)}
+         <button onClick={() => OnClose(props.id)} style={{backgroundColor:"yellowgreen"}}>Close</button>
+         <button onClick={() => console.log("los favoritos son:",myfavorites)} style={{backgroundColor:"yellowgreen"}}>fav</button>
+      <Link to={`/detail/${props.id}`} >
       <br></br>
       <br></br>   
-      <img src={image} alt=''></img>
-      <h3 className="card-name">{name}</h3>
+      <img src={props.image} alt=''></img>
+      <h3 className="card-name">{props.name}</h3>
       
   
     </Link>
+        </div>
         
     
    );
