@@ -1,6 +1,8 @@
 
 import {addFav} from "./actions";
 import { removeFav } from "./actions";
+import { filterCards } from "./actions";
+import { orderCards } from "./actions";
 import { useReducer } from "react";
 
 const initialState ={myFavorites:[]}
@@ -17,8 +19,20 @@ export const favoritos = function (state = initialState, action) {
         return  {
             ...state, myFavorites:state.myFavorites.filter((personajeid) => personajeid.id!==Number(action.payload))            
         };
-        default:
-            return state
+        
+        case filterCards().type:
+        return  {
+            ...state, myFavorites:state.myFavorites.filter((personajeid) => personajeid.id!==Number(action.payload))            
+                };
+        case orderCards().type:
+        return  {
+            ...state, myFavorites:state.myFavorites.filter((personajeid) => personajeid.id!==Number(action.payload))            
+                        };
+
+
+    default:
+        return state    
+        
     }
 }
 
