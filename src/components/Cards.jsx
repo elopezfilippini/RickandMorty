@@ -4,9 +4,8 @@ export default function Cards(props)  {
    let characters = props.characters;
  
    // Check if characters is an array before using map
-   console.log(characters);
    if (!Array.isArray(characters)) {
-     console.error('Characters is not an array!');
+   
      return null; // or handle the error in a way that makes sense for your application
    }
 return(
