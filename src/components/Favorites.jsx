@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 
 
+
 export default function Favorites(){
     const myfavorites = useSelector(state => state.myFavorites)
     console.log("mis favoritos son ", myfavorites)
     return(
         <div style={{  alignItems:"center",
         flexDirection:"row",maxWidth:50}} className='Cartas'>
+          <Link to={"/inicio"}><button >Regresar</button></Link>
           {myfavorites.map((character) =>(
             <div key={character.id} style={{
                backgroundColor: 'yellow', 

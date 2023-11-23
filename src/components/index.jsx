@@ -25,7 +25,7 @@ export default function Index(){var [characters,setCharacters]= React.useState([
     }
  return(
  <div>
-    <Nav onSearch={onSearch}  />  
+<Nav onSearch={onSearch}  />  
     <Cards characters={characters} OnClose={OnClose}/> 
 </div> 
 )}
