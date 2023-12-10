@@ -22,14 +22,17 @@ export const favoritos = function (state = initialState, action) {
         };
         
         case filterCards().type:
+            if (action.payload === "All") return {...state, myfavorites:state.allcharacters}
 
         return  {
             ...state, myFavorites:state.allcharacters.filter((personaje) => personaje.gender===action.payload)            
                 };
         case orderCards().type:
-            const ordercopy = [...myFavorites]; 
-            if(payload==="A" ) ordercopy.sort((a,b)=> a.id-b.id)
-            if(payload==="D" ) ordercopy.sort((a,b)=> b.id-a.id) 
+            const ordercopy = [...state.myFavorites]; 
+
+            if(action.payload==="A" ) ordercopy.sort((a,b)=> a.id-b.id)
+            if(action.payload==="D" ) ordercopy.sort((a,b)=> b.id-a.id) 
+            console.log(ordercopy)
             return {...state,myFavorites:ordercopy} 
        
 

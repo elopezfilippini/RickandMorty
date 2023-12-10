@@ -6,8 +6,10 @@ import Nav from "./Nav";
 import axios from "axios"
 
 export default function Index(){var [characters,setCharacters]= React.useState([])
-    function onSearch(id) {
-       console.log(`https://rickandmortyapi.com/api/character/${id}`)
+    function onSearch(id) {if (characters.some(character => character.id === Number(id))) {
+      window.alert('Personaje repetido, ingrese uno que no figure');}
+      else
+       
        axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
           ({ data }) => {
              if (data.name) {
@@ -26,6 +28,11 @@ export default function Index(){var [characters,setCharacters]= React.useState([
  return(
  <div>
 <Nav onSearch={onSearch}  />  
+<br></br>
+
+
     <Cards characters={characters} OnClose={OnClose}/> 
+    <br></br>
 </div> 
 )}
+ 

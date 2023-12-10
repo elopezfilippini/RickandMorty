@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
-import { addFav,removeFav } from "../redux/actions";
+import { addFav,filterCards,orderCards,removeFav } from "../redux/actions";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
@@ -8,12 +8,28 @@ import Card from "./Card";
 
 
 export default function Favorites(){
-    const myfavorites = useSelector(state => state.myFavorites)
+
+  const myfavorites = useSelector(state => state.myFavorites)
     console.log("mis favoritos son ", myfavorites)
+    const dispatch=useDispatch()
+    const handleOrder = event =>{dispatch(orderCards(event.target.value))}
+    const filtercards = event =>{dispatch(filterCards(event.target.value))}      
     return(
         <div style={{  alignItems:"center",
-        flexDirection:"row",maxWidth:50}} className='Cartas'>
+        flexDirection:"row",maxWidth:350}} className='Cartas'>
           <Link to={"/inicio"}><button >Regresar</button></Link>
+          <div>
+          <select  onChange={handleOrder} name ="opciones">
+          <option name="order" value="A"> Ascendente</option>
+          <option name="order" value="D"> Descendente</option></select><select  onChange={filtercards}name ="filter">
+          <option  value="All"> All</option>
+          <option  value="Male"> Male</option>
+          <option  value="Female"> Female</option>
+          <option  value="Genderless"> Genderless</option>
+          <option  value="unknown"> unknown</option>
+          </select></div>
+          
+          <hr></hr>
           {myfavorites.map((character) =>(
             <div key={character.id} style={{
                backgroundColor: 'yellow', 

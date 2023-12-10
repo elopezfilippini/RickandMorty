@@ -9,18 +9,19 @@ export default function Cards(props)  {
      return null; // or handle the error in a way that makes sense for your application
    }
 return(
-  <div style={{  alignItems:"center",
-  flexDirection:"row",maxWidth:50}} className='Cartas'>
+  <div style={{
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly"
+ }} className='Cartas'>
     {characters.map((character) =>(
       <div key={character.id} style={{
          backgroundColor: 'yellow', 
          fontSize: '16  px',
-         border: '3px solid red',
-         margin: '2p  x',
-         width : '500px',
-     
+         border: '1px solid red',
          
-       
+         width : '400px',
+
        
        }}> <h2 style={{color:"Black"}}>Personaje </h2>
          <Card

@@ -1,30 +1,4 @@
-// import React from 'react';
-   
-//    export default function SearchBar(props) {
-//       var [id,setid]= React.useState("")
-//       function cambio(evento){
-//          setid(evento.target.value)
-//          console.log(id)}
-//       function precambio(){
-//          cambio(evento.target.value);
-//          evento.target.value =""
 
-
-
-//          }
-//       return (
-//          <div>
-//             <input onChange = {cambio} type='search' />
-//             <button onClick = {precambio} onClick= {()=>props.onSearch(id)}>Agregar</button> 
-//          </div>
-//       );
-//    }
-
-   
-// Entendido. Parece que hay un pequeño malentendido en la implementación del botón. Si quieres ejecutar ambas funciones al hacer clic en el botón, deberías llamar a ambas funciones dentro del mismo manejador de eventos onClick. Aquí tienes una versión corregida:
-
-// jsx
-// Copy code
 import React from 'react';
 
 export default function SearchBar(props) {
@@ -42,11 +16,20 @@ export default function SearchBar(props) {
     setId("");
 
   }
+  function randomizado() {
+    var numeroaleatorio =  Math.floor(Math.random() * (800 - 1))
+    props.onSearch(numeroaleatorio) 
+
+    //  evento.target.value = "";
+     setId("");
+    
+   }
 
   return (
     <div>
       <input name= "Osiris" onChange={cambio} value={id} type='search' />
       <button onClick={precambio}>Agregar</button>
+      <button onClick={randomizado}>Agregar Random</button>
     </div>
   );
 }

@@ -25,14 +25,19 @@ useEffect(() => {
 
 
       return (
-        <div> { isfav ? ( <button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>)}{ console.log(isfav)}
+        <div    style={{
+         backgroundColor: "grey",
+         margin: "20px",
+         padding: "20px",
+         borderRadius: "15px",
+      }}> { isfav ? ( <button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>)}{ console.log(isfav)}
          <button onClick={() => OnClose(props.id)} style={{backgroundColor:"yellowgreen"}}>Close</button>
          <button onClick={() => console.log("los favoritos son:",myfavorites)} style={{backgroundColor:"yellowgreen"}}>fav</button>
       <Link to={`/detail/${props.id}`} >
       <br></br>
       <br></br>   
-      <img src={props.image} alt=''></img>
-      <h3 className="card-name">{props.name}</h3>
+      <img src={props.image} alt='' style={{ maxWidth: '100%', height: 'auto' }} />      <h3 className="card-name"> Nombre: {props.name}</h3>
+      <h3 className="card-name"> ID:{props.id}</h3>
       
   
     </Link>

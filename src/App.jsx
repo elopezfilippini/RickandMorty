@@ -17,9 +17,15 @@ import Form  from './components/Form.jsx';
 function App() {
    return (
      
-      <div className='App'style={{alignItems:"center",
-      flexDirection:"row"}}><h1>Rick And Morty App</h1>
- 
+      <div style={{
+         backgroundColor: "grey",
+        
+         
+         }}><h1>Rick And Morty App</h1>
+         <br></br>
+         <br></br>
+         <br></br>
+         <br></br>
       <Routes>
          <Route path={"/about"} element={<About />}></Route>
          <Route path={"/"} element={<Form />}></Route>
@@ -27,7 +33,7 @@ function App() {
          <Route path={"/favoritos"} element={<Favorites />}></Route>
          <Route path={"/inicio"} element={<Index />}></Route>
       </Routes> 
-        
+   
       </div>
    );
 }  
