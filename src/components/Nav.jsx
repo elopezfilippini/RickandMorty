@@ -6,7 +6,7 @@ export default function Nav(props) {
     const onSearch = props.onSearch
     return (
         <div>
-        <Link to={'/'}><button style={{ border: "1px solid #ccc"}}>Home</button></Link>
+        <Link to={'/inicio'}><button style={{ border: "1px solid #ccc"}}>Home</button></Link>
         <Link to={'/about'}><button style={{ border: "1px solid #ccc"}} >About</button></Link>
         <Link to={'/favoritos'}><button style={{ border: "1px solid #ccc"}} >Favoritos</button></Link>
 
