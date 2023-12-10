@@ -1,19 +1,19 @@
 import React from "react";
 import {Link} from "react-router-dom"
-import { addFav,removeFav } from "../redux/actions";
+import { addFav,removeFav } from "../Redux/actions";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
-
+import Nav from "./Nav";
 
 
 export default function Favorites(){
     const myfavorites = useSelector(state => state.myFavorites)
     console.log("mis favoritos son ", myfavorites)
-    return(
+    return(<div> 
         <div style={{  alignItems:"center",
         flexDirection:"row",maxWidth:50}} className='Cartas'>
-          <Link to={"/inicio"}><button >Regresar</button></Link>
+          
           {myfavorites.map((character) =>(
             <div key={character.id} style={{
                backgroundColor: 'yellow', 
@@ -35,7 +35,7 @@ export default function Favorites(){
                 
                   />
          </div>))}
-         </div>)}
+         </div></div>)}
 
 
 
