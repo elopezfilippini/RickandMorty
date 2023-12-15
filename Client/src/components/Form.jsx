@@ -19,12 +19,13 @@ function Handleclick(){
     navigate('/inicio')
 }
 
-function handleSubmit(e){
-    e.preventDefault()
-    console.log(userData.password)
-    console.log(userData.email)
-    console.log(login(userData))
-}
+const handleSubmit = event => {
+    console.log("estoyclickeando")
+    event.preventDefault();
+    props.login(userData);
+  }
+
+
 return (
 <form style={{backgroundImage:"url(https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2019/11/rick-morty-4x02.jpg?tf=1200x)",backgroundSize:"Cover",  backgroundRepeat: "no-repeat",
 }}>

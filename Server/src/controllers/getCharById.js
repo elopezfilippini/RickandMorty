@@ -1,13 +1,14 @@
-import axios from "axios"
+const axios = require("axios");
+const express = require('express');
 
-const getCharById = function (res,id) {
-
+const getCharById = function (req,res) {
+const id= req.params.id
    
         axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
            ({ data }) => {
              const personaje = {name: data.name, gender:data.gender, species:data.species, origin:data.origin, image:data.image, status:data.status}
-             res.writeHead(200, { 'Content-Type': 'application/json' });
-             res.end(JSON.stringify(personaje));
+             
+             res.status(200).json(personaje)
             }
         )
         .catch(error => {
@@ -17,4 +18,4 @@ const getCharById = function (res,id) {
           });
       };
 
-      export default getCharById;
+      module.exports = getCharById;

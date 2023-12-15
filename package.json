@@ -2,7 +2,7 @@
   "name": "rickandmorty",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "start": "nodemon ./Server/src/index.js",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^1.6.2",
+    "express": "^4.18.2",
     "nodemon": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

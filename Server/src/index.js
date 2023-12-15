@@ -1,27 +1,25 @@
-// server.js
-import http, { get } from 'http';
-import { URL } from 'url';
-import getCharById from "./controllers/getCharById.js"
+const express = require('express');
+const router = require("./routes");
+const server = express();
+const PORT = 3001;
 
+server.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', '*');
+   res.header('Access-Control-Allow-Credentials', 'true');
+   res.header(
+      'Access-Control-Allow-Headers',
+       'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    res.header(
+       'Access-Control-Allow-Methods',
+       'GET, POST, OPTIONS, PUT, DELETE'
+    );
+    next();
+ });
 
-const server = http.createServer((req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
-    const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-    const pathSegments = parsedUrl.pathname.split('/');
-    
-    if (pathSegments[1] === 'rickandmorty' && pathSegments[2] === 'characters') {
-        const characterId = parseInt(pathSegments[3], 10);
-        getCharById(res,characterId)
-
-     
-    } else {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Endpoint not found');
-    }
-});
-
-const port = 3001;
-server.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+ server.use(express.json())
+ server.use("/rickandmorty", router);
+ 
+ server.listen(PORT, () => {
+    console.log('Server raised in port: ' + PORT);
+ });

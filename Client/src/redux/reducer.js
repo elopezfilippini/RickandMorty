@@ -1,7 +1,7 @@
 
 import {addFav} from "./actions";
 import { removeFav } from "./actions";
-import { filterCards } from "./actions";
+import { filterCards } from "./actions.js";
 import { orderCards } from "./actions";
 import { useReducer } from "react";
 
@@ -11,15 +11,12 @@ export const favoritos = function (state = initialState, action) {
     switch (action.type)
     {
         case addFav().type: 
-        return {    
-            ...state, myFavorites:[...state.myFavorites,action.payload],allcharacters:[...state.allcharacters,action.payload]              
-        };
+         
+            return { ...state, myFavorites: payload, allCharacters: payload };            
+        ;
         
         case removeFav().type:
-        return  {
-            ...state, myFavorites:state.myFavorites.filter((personajeid) => personajeid.id!==Number(action.payload)), 
-            allcharacters:state.allcharacters.filter((personajeid) => personajeid.id!==Number(action.payload))            
-        };
+            return { ...state, myFavorites: payload };
         
         case filterCards().type:
             if (action.payload === "All") return {...state, myfavorites:state.allcharacters}

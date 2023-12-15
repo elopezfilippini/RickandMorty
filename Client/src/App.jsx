@@ -22,20 +22,23 @@ const EMAIL = 'ejemplo@gmail.com';
 const PASSWORD = '1234';
 
 function login(userData) {
-   if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate('/inicio');
-   }  
-   else window.alert("La contraseña introducida no es valida")
+   const { email, password } = userData;
+   console.log("la data en login es"+email+""+password)
+   const URL = 'http://localhost:3001/rickandmorty/login/';
+   axios.get(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      console.log("el access es ="+ access)
+      setAccess(data);
+      access && navigate('/inicio');
+   }).catch((error) => window.alert('¡No hay conexión'));;
 }
-useEffect(() => {!access && navigate('/');}, [access]);
  
 const [characters, setCharacters] = React.useState([]);
 console.log(characters)
 
    function onSearch(id) {
    
-      axios.get(`http://localhost:3001/rickandmorty/characters/${id}`).then(
+      axios.get(`http://localhost:3001/rickandmorty/character/${id}`).then(
          ({ data }) => {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
@@ -43,7 +46,7 @@ console.log(characters)
                window.alert('¡No hay personajes con este ID!');
             }
          }
-      );
+      ).catch((error) => window.alert('¡No hay conexión'));
    }
 
    function OnClose(selectedid) {
