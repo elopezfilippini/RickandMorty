@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { addFav, filterCards, orderCards, removeFav } from "../Redux/actions";
+import { addFav, filterCards, orderCards, removeFav } from "../redux/actions";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
@@ -48,9 +48,9 @@ export default function Favorites() {
             <option value="unknown">unknown</option>
           </select>
         </div>
-
+  
         <hr></hr>
-
+  
         <div
           style={{
             alignItems: "center",
@@ -59,32 +59,35 @@ export default function Favorites() {
           }}
           className="Cartas"
         >
-          {myfavorites.map((character) => (
-            <div
-              key={character.id}
-              style={{
-                backgroundColor: "yellow",
-                fontSize: "16px",
-                border: "3px solid red",
-                margin: "20px",
-                width: "500px",
-              }}
-            >
-              <h2 style={{ color: "black" }}>Personaje </h2>
-              <Card
+          {myfavorites.length > 0 ? (
+            myfavorites.map((character) => (
+              <div
                 key={character.id}
-                id={character.id}
-                name={character.name}
-                status={character.status}
-                species={character.species}
-                gender={character.gender}
-                origin={character.origin.name}
-                image={character.image}
-              />
-            </div>
-          ))}
+                style={{
+                  backgroundColor: "yellow",
+                  fontSize: "16px",
+                  border: "3px solid red",
+                  margin: "20px",
+                  width: "500px",
+                }}
+              >
+                <h2 style={{ color: "black" }}>Personaje </h2>
+                <Card
+                  key={character.id}
+                  id={character.id}
+                  name={character.name}
+                  status={character.status}
+                  species={character.species}
+                  gender={character.gender}
+                  origin={character.origin.name}
+                  image={character.image}
+                />
+              </div>
+            ))
+          ) : (
+            <p>No hay personajes favoritos</p>
+          )}
         </div>
       </div>
     </div>
-  );
-}
+  )}

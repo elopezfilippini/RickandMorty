@@ -6,7 +6,7 @@ const id= req.params.id
    
         axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(
            ({ data }) => {
-             const personaje = {name: data.name, gender:data.gender, species:data.species, origin:data.origin, image:data.image, status:data.status}
+             const personaje = {id: data.id, name: data.name, gender:data.gender, species:data.species, origin:data.origin, image:data.image, status:data.status}
              
              res.status(200).json(personaje)
             }

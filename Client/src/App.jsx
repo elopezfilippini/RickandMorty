@@ -41,7 +41,7 @@ console.log(characters)
       axios.get(`http://localhost:3001/rickandmorty/character/${id}`).then(
          ({ data }) => {
             if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
+               setCharacters((pepo) => [...pepo, data]);
             } else {
                window.alert('¡No hay personajes con este ID!');
             }
