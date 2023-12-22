@@ -12,19 +12,19 @@ const initialState ={myFavorites:[],allcharacters:[]}
 export const favoritos = function (state = initialState, action) {
     switch(action.type) {
         case ADD_FAV: {
-          return { ...state, myFavorites: action.payload, allCharacters:  action.payload };
+          return { ...state, myFavorites: action.payload, allcharacters:  action.payload };
         }
         case REMOVE_FAV: {
        
-          return { ...state, myFavorites: action.payload, allCharacters: action.payload };
+          return { ...state, myFavorites: action.payload, allcharacters: action.payload };
         }
-        case FILTER.type:
+        case FILTER:
             if (action.payload === "All") return {...state, myfavorites:state.allcharacters}
 
         return  {
             ...state, myFavorites:state.allcharacters.filter((personaje) => personaje.gender===action.payload)            
                 };
-        case ORDER.type:
+        case ORDER:
             const ordercopy = [...state.myFavorites]; 
 
             if(action.payload==="A" ) ordercopy.sort((a,b)=> a.id-b.id)

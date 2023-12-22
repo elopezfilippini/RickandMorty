@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 import Nav from "./Nav";
+import "./cards.css"
 
 export default function Favorites() {
   const myfavorites = useSelector((state) => state.myFavorites);
@@ -21,16 +22,10 @@ export default function Favorites() {
   return (
     <div>
       <div
-        style={{
-          alignItems: "center",
-          flexDirection: "row",
-          maxWidth: 350,
-        }}
-        className="Cartas"
+     
+        className="s"
       >
-        <Link to={"/inicio"}>
-          <button>Regresar</button>
-        </Link>
+      
         <div>
           <select onChange={handleOrder} name="opciones">
             <option name="order" value="A">
@@ -52,26 +47,15 @@ export default function Favorites() {
         <hr></hr>
   
         <div
-          style={{
-            alignItems: "center",
-            flexDirection: "row",
-            maxWidth: 500,
-          }}
-          className="Cartas"
+        
+          className="cartas"
         >
           {myfavorites.length > 0 ? (
             myfavorites.map((character) => (
-              <div
+              <div className="carta"
                 key={character.id}
-                style={{
-                  backgroundColor: "yellow",
-                  fontSize: "16px",
-                  border: "3px solid red",
-                  margin: "20px",
-                  width: "500px",
-                }}
-              >
-                <h2 style={{ color: "black" }}>Personaje </h2>
+                             >
+                <h2 style={{ color: "black" }}>Favorito : {character.name} </h2>
                 <Card
                   key={character.id}
                   id={character.id}
@@ -90,4 +74,4 @@ export default function Favorites() {
         </div>
       </div>
     </div>
-  )}
+  )}  

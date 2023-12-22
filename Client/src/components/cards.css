@@ -1,0 +1,28 @@
+.cartas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.carta {
+   
+background-color: rgb(255, 0, 111); 
+font-size: 16px;
+border: 1px solid green;
+width : 400px;
+opacity: 90%;
+border-radius: 50px; 
+margin-bottom: 20px;
+margin-bottom: 20px; 
+transition: transform 0.5s ease-in-out; 
+
+   }
+   .carta:hover {
+    transform: scale(1.05);
+    color:blueviolet;
+    opacity:100%;
+    box-shadow: 0 0 200px rgb(217, 255, 103); 
+    transform: scale(1.1) rotate(7deg);
+
+}

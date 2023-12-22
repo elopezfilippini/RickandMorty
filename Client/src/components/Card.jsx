@@ -44,8 +44,8 @@ useEffect(() => {
       <Link to={`/detail/${props.id}`} >
       <br></br>
       <br></br>   
-      <img src={props.image} alt='' style={{ maxWidth: '100%', height: 'auto' }} />      <h3 className="card-name"> Nombre: {props.name}</h3>
-      <h3 className="card-name"> ID:{props.id}</h3>
+      <img src={props.image} alt='' style={{ maxWidth: '100%', height: 'auto' }} />      <h3 className="card-name" style={{fontSize:"32px", color:"yellow"}}> Status: {props.status}</h3>
+      <h3 className="card-name" style={{fontSize:"24px", color:"whitesmoke"}}> ID:{props.id}</h3>
       
   
     </Link>

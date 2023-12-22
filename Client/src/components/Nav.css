@@ -1,0 +1,13 @@
+.button {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+.button:hover {
+    transform: scale(0.5);
+    color:blueviolet}
+
+    .button:active {
+        transform: scale(3.9); /* Puedes ajustar el valor según tus preferencias */
+        /* Otros estilos que deseas aplicar al hacer clic */
+      }
+  

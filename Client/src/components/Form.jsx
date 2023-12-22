@@ -27,10 +27,10 @@ const handleSubmit = event => {
 
 
 return (
-<form style={{backgroundImage:"url(https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2019/11/rick-morty-4x02.jpg?tf=1200x)",backgroundSize:"Cover",  backgroundRepeat: "no-repeat",
-}}>
-<label style={{color:"black"}}>Email : </label> <input name="email" onChange={HandleOnChange}></input>
-<label style={{color:"black"}} >    Password: </label> <input name="password"  type  ="password"onChange={HandleOnChange}></input>
+<form
+>
+<label style={{color:"black",fontSize:"1em"}}>Email : </label> <input style={{fontSize:"1em"}} name="email" onChange={HandleOnChange}></input>
+<label style={{color:"black",fontSize:"1em"}} >    Password: </label> <input name="password"  type  ="password"onChange={HandleOnChange}></input>
 <hr style={{margin:"15px"}}></hr>   
 <a1 style={{color:"red"}}>{error.email ? error.email: null} </a1>
 <a1 style={{color:"red"}}>{error.password ? error.password: null} </a1>

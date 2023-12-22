@@ -1,6 +1,9 @@
 const express = require('express');
 const router = require("./routes");
 const server = express();
+const path = require('path');
+const { conn } = require('./DB_connection');    
+
 const PORT = 3001;
 
 server.use((req, res, next) => {
@@ -17,6 +20,7 @@ server.use((req, res, next) => {
     next();
  });
 
+ server.use('/Public', express.static(path.join(__dirname, 'Public')));
  server.use(express.json())
  server.use("/rickandmorty", router);
  

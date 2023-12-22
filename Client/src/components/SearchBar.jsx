@@ -27,9 +27,12 @@ export default function SearchBar(props) {
 
   return (
     <div>
-      <input name= "Osiris" onChange={cambio} value={id} type='search' />
+      <input style={{fontSize:"28px"}}name= "Osiris" onChange={cambio} value={id} type='search' />
       <button onClick={precambio}>Agregar</button>
       <button onClick={randomizado}>Agregar Random</button>
+      <br></br>
+      <br></br>
+
     </div>
   );
 }
